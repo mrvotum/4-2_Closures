@@ -1,4 +1,4 @@
-import findBy from '../js/app';
+import findBy from '../js/fun-findBy';
 
 test('Find magic', () => {
   const inputArr = [
@@ -8,7 +8,9 @@ test('Find magic', () => {
   ];
   const inputName = 'урон';
 
-  const expected = [{"description": "Страница описания элемента интерфейса", "name": "урон", "type": "help"}]; // ожидает
+  const expected = [
+    { description: 'Страница описания элемента интерфейса', name: 'урон', type: 'help' },
+  ]; // ожидает
   const received = findBy(inputArr, inputName); // получает
   expect(received).toEqual(expected); // сравнивает
 });
