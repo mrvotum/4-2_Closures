@@ -6,6 +6,7 @@ const characterDescription = [
   { name: 'урон', type: 'help', description: 'Страница описания элемента интерфейса' },
 ];
 
-const results = findBy(characterDescription, 'заклинание');
+const results = findBy(characterDescription, 'description', 'магическими');
+// массив где искать, в каком поле искать, что искать
 
 console.log(results);
