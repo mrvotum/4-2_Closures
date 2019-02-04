@@ -1,4 +1,4 @@
-import findBy from '../js/fun-findBy';
+import findBy from '../js/findBy';
 
 test('Find "урон" by name', () => {
   const inputArr = [
@@ -6,13 +6,13 @@ test('Find "урон" by name', () => {
     { name: 'заклинание', type: 'attack', description: 'Атака магическим заклинанием' },
     { name: 'урон', type: 'help', description: 'Страница описания элемента интерфейса' },
   ];
-  const inputField = 'name';
-  const inputName = 'урон';
+  const inputFinder = findBy('name', 'урон');
 
   const expected = [
     { description: 'Страница описания элемента интерфейса', name: 'урон', type: 'help' },
   ]; // ожидает
-  const received = findBy(inputArr, inputField, inputName); // получает
+
+  const received = inputArr.filter(inputFinder); // получает
   expect(received).toEqual(expected); // сравнивает
 });
 
@@ -22,13 +22,12 @@ test('Find "attack" by type', () => {
     { name: 'заклинание', type: 'attack', description: 'Атака магическим заклинанием' },
     { name: 'урон', type: 'help', description: 'Страница описания элемента интерфейса' },
   ];
-  const inputField = 'type';
-  const inputName = 'attack';
+  const inputFinder = findBy('type', 'attack');
 
   const expected = [
     { description: 'Атака магическим заклинанием', name: 'заклинание', type: 'attack' },
   ]; // ожидает
-  const received = findBy(inputArr, inputField, inputName); // получает
+  const received = inputArr.filter(inputFinder); // получает
   expect(received).toEqual(expected); // сравнивает
 });
 
@@ -38,12 +37,11 @@ test('Find "элемента" by description', () => {
     { name: 'заклинание', type: 'attack', description: 'Атака магическим заклинанием' },
     { name: 'урон', type: 'help', description: 'Страница описания элемента интерфейса' },
   ];
-  const inputField = 'description';
-  const inputName = 'элемента';
+  const inputFinder = findBy('description', 'Страница описания элемента интерфейса');
 
   const expected = [
     { description: 'Страница описания элемента интерфейса', name: 'урон', type: 'help' },
   ]; // ожидает
-  const received = findBy(inputArr, inputField, inputName); // получает
+  const received = inputArr.filter(inputFinder); // получает
   expect(received).toEqual(expected); // сравнивает
 });

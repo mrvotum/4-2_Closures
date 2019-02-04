@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --coverage",
     "lint": "eslint .",
-    "start": "live-server src"
+    "start": "live-server src",
+    "build": "babel src -d dist"
   },
   "keywords": [
     "netology"
